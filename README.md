@@ -19,7 +19,7 @@ npm start
  * [node.js](http://nodejs.org)
  * [npm](https://npmjs.org)
  * [express](http://expressjs.com)
- * [express Handlebars](https://github.com/ericf/express-handlebars)
+ * [express handlebars](https://github.com/ericf/express-handlebars)
  * [superagent](http://visionmedia.github.io/superagent/)
  * [cookie-session](https://github.com/expressjs/cookie-session)
  * [config](https://github.com/lorenwest/node-config)
