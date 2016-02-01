@@ -10,6 +10,7 @@ import java.math.RoundingMode;
 import java.util.Random;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -32,6 +33,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes={TestConfiguration.class})
+@Ignore
 public class PaymentClientTest {
 
 	@Autowired
