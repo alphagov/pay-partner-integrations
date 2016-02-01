@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Example Order System</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	th:href="@{/css/style.css}" href="css/style.css" />
+</head>
+<body>
+	<div class="ctr">
+		<h1>Orders</h1>
+		<div class="table">
+			<div class="thead">
+				<div class="tr">
+					<div class="td">Name</div>
+					<div class="td">Cost</div>
+					<div class="td">Action</div>
+				</div>
+			</div>
+			<div class="tbody">
+				<!--/* existing payments state transition */-->
+				<form class="tr" method="POST" th:action="@{/orders/transition}"
+					th:each="order : ${orders}">
+					<div class="td" th:text="${order.description}">1</div>
+					<div class="td" th:text="${order.cost}">2</div>
+
+					<!--/* show buttons according to payment status */-->
+					<div class="td action" >
+						<input type="hidden" name="id" th:value="${order.id}" />
+						<button type="submit" name="target" value="pay" th:if="${order.status == T(uk.nhsbsa.gds.hack.model.OrderStatus).PENDING}">Pay</button>
+						<button type="submit" name="target" value="approve" th:if="${order.status == T(uk.nhsbsa.gds.hack.model.OrderStatus).SUBMITTED}">Approve</button>
+						<button type="submit" name="target" value="reject" th:if="${order.status == T(uk.nhsbsa.gds.hack.model.OrderStatus).SUBMITTED}">Reject</button>
+						<span th:if="${order.status == T(uk.nhsbsa.gds.hack.model.OrderStatus).APPROVED}">Approved</span>
+						<span th:if="${order.status == T(uk.nhsbsa.gds.hack.model.OrderStatus).REJECTED}">Rejected</span>
+					</div>
+				</form>
+				<!--/* create new payment */-->
+				<form class="tr" method="POST" th:action="@{/orders}">
+					<div class="td">
+						<input type="text" name="description" />
+					</div>
+					<div class="td">
+						<input type="text" name="cost" />
+					</div>
+					<div class="td action">
+						<input type="submit" value="Add" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
