@@ -1,4 +1,4 @@
-# Pay Partner Integrations
+# Pay Partner Solutions
 
 Integrations in to GOV.UK Pay produced by partners including some from our January hack day and subsequent collected efforts.
 
